@@ -8,4 +8,13 @@ class student:
     def get_attributes(self):
       return self.name, self.average, self.uni, self.program
     
+    def get_program(self):
+      return self.program
+
+    def get_uni(self):
+      return self.uni
+
+    def get_average(self):
+      return self.average
+
     
