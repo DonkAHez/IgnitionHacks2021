@@ -1,0 +1,28 @@
+{
+  "files": {
+    "PeopleClass.py": [
+      {
+        "id": "4c94396a-320b-4151-84c4-34771c0ea1cb",
+        "line": 3,
+        "version": 1,
+        "index": 76
+      }
+    ],
+    "main.py": [
+      {
+        "id": "d9cf70dd-2966-4d6b-875c-af453bb94bff",
+        "line": 1,
+        "version": 279,
+        "index": 0
+      }
+    ],
+    "text.txt": [
+      {
+        "id": "76938845-dfc7-4e30-9d01-c4f5598dbf15",
+        "line": 1,
+        "version": 0,
+        "index": 0
+      }
+    ]
+  }
+}
