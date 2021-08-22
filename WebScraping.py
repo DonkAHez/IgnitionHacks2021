@@ -1,6 +1,4 @@
 from PeopleClass import student
-from bs4 import BeautifulSoup
-import requests 
 
 from selenium import webdriver
 
@@ -46,14 +44,22 @@ for i in users:
 
 
 def get_acceptance_prediction(student):
-  link = get_link(student)
-  get_data(link, student)
+  df = []
+  for i in range(12):
+    driver.switch_to.window(driver.window_handles[i])
+    link = get_link(student, i)
+    lst = get_data(link, student)
+    lst.append(i+2005)
+    df.append(lst)
+    driver.execute_script("window.open('');")
+  return df
 
-def get_link(student):
+def get_link(student, index):
+  year = str(index + 2005)
   program = student.get_program()
   ID = get_program_ID(program)
 
-  return "https://cudo.ouac.on.ca/page.php?id=7&table=9#univ=1,2,3,8,9,11,12,14,16,17,21,22,23,24,25,27,28,29,30,31,32,33,34,42&topic=B&table_hidden=5&y=2016&r=" + ID
+  return "https://cudo.ouac.on.ca/page.php?id=7&table=9#univ=1,2,3,8,9,11,12,14,16,17,21,22,23,24,25,27,28,29,30,31,32,33,34,42&topic=B&table_hidden=5&y=" + year + "&r=" + ID
 
 def get_program_ID(program):
   file = open("cudoProgramIDs.txt", "r")
@@ -65,8 +71,8 @@ def get_program_ID(program):
 def get_data(link, student):
   driver.get(link)
   uni = get_uni(driver, student)
-  print(uni)
-  get_percentages()
+  # print(uni)
+  return(get_precentages(driver, uni))
 
 
 def get_uni(driver, student):
@@ -75,9 +81,30 @@ def get_uni(driver, student):
   p_element = driver.find_elements_by_class_name("title")
   for i in range (len(p_element)):
     if p_element[i].text == uni:
-      return i+1
+      return i
 
-def get_precentages(driver, uni)
+def get_precentages(driver, uni):
+  p_element = driver.find_elements_by_tag_name("td")
+  p_element = p_element[uni*9:(uni+1)*9]
+  for i in range (len(p_element)):
+    if i != 0:
+      p_element[i] = cast_to_float(p_element[i])
+    else:
+      p_element[i] = p_element[i].text
+  return p_element
 
-get_acceptance_prediction(users[2])
 
+def cast_to_float(element):
+  element = element.text
+  if element != "*": 
+    if element == "n/a":
+        return float(0)
+    else:
+      string = ""
+      for i in range (len(element)-1):
+        string += element[i]
+      return float(string)
+  return float(0)
+
+
+print(get_acceptance_prediction(users[2]))

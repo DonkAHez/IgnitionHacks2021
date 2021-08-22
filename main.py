@@ -1,10 +1,28 @@
-from flask import Flask
+from flask import Flask, render_template, request
 
-app = Flask(__name__)
+# Create a flask app
+app = Flask(
+  __name__,
+  template_folder = "stuff"
+)
 
-@app.route("/")
+# Index page
+@app.route('/')
 def index():
-  return "Hello World"
+  return render_template('index.html')
 
-if __name__ == "__main__":
-  app.run(debug=True)
+@app.route('/info', methods=['POST', 'GET'])
+def grade():
+  print("yo")
+  form_data = request.form
+  return render_template('results.html', form = form_data)
+
+
+
+if __name__ == '__main__':
+  # Run the Flask app
+  app.run(
+	host='0.0.0.0',
+	debug=True,
+	port=8080
+  )
