@@ -13,7 +13,6 @@ def index():
 
 @app.route('/info', methods=['POST', 'GET'])
 def grade():
-  print("yo")
   form_data = request.form
   return render_template('results.html', form = form_data)
 

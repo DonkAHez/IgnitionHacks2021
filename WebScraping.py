@@ -47,11 +47,13 @@ def get_acceptance_prediction(student):
   df = []
   for i in range(12):
     driver.switch_to.window(driver.window_handles[i])
-    link = get_link(student, i)
+    link, program = get_link(student, i)
     lst = get_data(link, student)
     lst.append(i+2005)
+    lst.append(program)
     df.append(lst)
     driver.execute_script("window.open('');")
+  driver.quit()
   return df
 
 def get_link(student, index):
@@ -59,7 +61,7 @@ def get_link(student, index):
   program = student.get_program()
   ID = get_program_ID(program)
 
-  return "https://cudo.ouac.on.ca/page.php?id=7&table=9#univ=1,2,3,8,9,11,12,14,16,17,21,22,23,24,25,27,28,29,30,31,32,33,34,42&topic=B&table_hidden=5&y=" + year + "&r=" + ID
+  return "https://cudo.ouac.on.ca/page.php?id=7&table=9#univ=1,2,3,8,9,11,12,14,16,17,21,22,23,24,25,27,28,29,30,31,32,33,34,42&topic=B&table_hidden=5&y=" + year + "&r=" + ID, program
 
 def get_program_ID(program):
   file = open("cudoProgramIDs.txt", "r")
