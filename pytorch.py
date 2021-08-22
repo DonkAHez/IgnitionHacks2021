@@ -1,9 +1,7 @@
 # imports necessary packages
 from torch import nn
 import torch
-import pandas
 import torch.optim as optim
-import numpy as np
 import torch.nn.functional as F
 device = torch.device('cpu')
 

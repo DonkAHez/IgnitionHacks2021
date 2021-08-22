@@ -1,0 +1,19 @@
+Agriculture, 1465
+Architecture, 1475
+Arts, 1485
+Science, 1495
+Business & Commerce, 1505
+Education, 1515
+Physical Education, 1525
+Engineering, 1535
+Environmental Studies, 1545
+Fine Arts, 1555
+Forestry, 1679
+Household Science, 1689
+Journalism, 1699
+Landscape Architecture, 1709
+Music, 1719
+Nursing, 1729
+Social Work, 1749
+Mathematics, 1799
+#Overall, 1809
