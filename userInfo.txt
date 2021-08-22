@@ -1,8 +1,8 @@
-John, 85, Waterloo, Mathematics
-Penny, 92, Toronto, Architecture
-Ray, 76, McMaster, Arts
-Aiden, 67, Carleton, Music
-Sophie, 89, McMaster, Science
-Angela, 78, Ottawa, Journalism
-Paul, 95, Toronto, Engineering
-Mary, 92, Waterloo, Mathematics
+John, 85, University of Waterloo, Mathematics
+Penny, 92, Toronto >> All Campuses, Architecture
+Ray, 76, McMaster University, Arts
+Aiden, 67, Carleton University, Music
+Sophie, 89, McMaster University, Science
+Angela, 78, University of Ottawa, Journalism
+Paul, 95, Toronto >> All Campuses, Engineering
+Mary, 92, University of Waterloo, Mathematics
